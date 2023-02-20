@@ -20,9 +20,7 @@ public class Inventory {
     @JoinColumn(name = "store_id", nullable = false)
     private Store storeId;
 
-    // todo decommentare con la creazione dell'entity Film
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "store_id", nullable = false)
-//    private Store filmId;
-    private long filmId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "film_id", nullable = false)
+    private Film filmId;
 }
