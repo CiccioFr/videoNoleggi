@@ -10,7 +10,10 @@ import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity @Getter @Setter @NoArgsConstructor
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Rental {
 
     @EmbeddedId
