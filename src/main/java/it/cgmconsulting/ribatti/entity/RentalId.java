@@ -18,11 +18,13 @@ import java.util.Objects;
 public class RentalId extends CreationRentalDate implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk10_customer"))
     private Customer customerId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "inventory_id", nullable = false)
+    @JoinColumn(name = "inventory_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk11_inventory"))
     private Inventory inventoryId;
 //    private long inventoryId;
 

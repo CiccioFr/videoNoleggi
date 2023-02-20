@@ -23,12 +23,14 @@ public class Film {
     private int releaseYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "language_id")   // nullable = false
+    @JoinColumn(name = "language_id",
+            foreignKey = @ForeignKey(name = "fk_language"))   // nullable = false
     private Language languageId;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "genre_id")      // nullable = false
+    @JoinColumn(name = "genre_id",
+            foreignKey = @ForeignKey(name = "fk_genre"))      // nullable = false
     private Genre genreId;
 
     @Override

@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,15 +13,18 @@ import java.util.Objects;
 public class FilmStaffId implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "film_id", nullable = false)
+    @JoinColumn(name = "film_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk1_film"))
     private Film filmId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "staff_id", nullable = false)
+    @JoinColumn(name = "staff_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk2_film"))
     private Staff staffId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "role_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk3_film"))
     private Role roleId;
 
     @Override

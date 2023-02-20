@@ -17,10 +17,12 @@ public class Inventory {
     private long inventoryId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id", nullable = false)
+    @JoinColumn(name = "store_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk6_film"))
     private Store storeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "film_id", nullable = false)
+    @JoinColumn(name = "film_id", nullable = false,
+            foreignKey = @ForeignKey(name = "fk5_film"))
     private Film filmId;
 }
