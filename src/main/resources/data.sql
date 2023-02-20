@@ -8,6 +8,19 @@ INSERT INTO `genre` (`genre_id`, `genre_name`) VALUES
 	(6, 'Thriller'),
 	(7, 'Western');
 
+INSERT INTO `language` (`language_id`, `language_name`) VALUES
+	(1, 'English'),
+	(5, 'French'),
+	(2, 'Italian'),
+	(3, 'Japanese'),
+	(4, 'Mandarin'),
+	(9, 'Norwegian'),
+	(6, 'Spanish');
+
+INSERT INTO `role` (`role_id`, `role_name`) VALUES
+	(1, 'ACTOR'),
+	(2, 'DIRECTOR');
+
 INSERT INTO `staff` (`staff_id`, `firstname`, `lastname`, `dob`) VALUES
 	(1, 'PENELOPE', 'GUINESS', '1956-09-01'),
 	(2, 'NICK', 'WAHLBERG', '2012-02-28'),
