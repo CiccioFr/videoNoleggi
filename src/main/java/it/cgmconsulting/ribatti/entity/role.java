@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity @Getter @Setter @NoArgsConstructor
-public class role {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

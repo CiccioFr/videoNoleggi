@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class language {
+public class Language {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
