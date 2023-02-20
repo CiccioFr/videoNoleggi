@@ -14,7 +14,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long roleId;
 
-    @Column(length = 20, unique = true, nullable = false)
+    @Column(length = 30, unique = true, nullable = false)
     private String roleName;
 
     @Override
