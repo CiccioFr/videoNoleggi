@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import java.util.Objects;
 
 @Entity @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class filmStaff {
+public class FilmStaff {
 
     @EmbeddedId
     private FilmStaffId filmStaffId;
@@ -19,7 +19,7 @@ public class filmStaff {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        filmStaff filmStaff = (filmStaff) o;
+        FilmStaff filmStaff = (FilmStaff) o;
         return Objects.equals(filmStaffId, filmStaff.filmStaffId);
     }
 
