@@ -25,4 +25,9 @@ public class Inventory {
     @JoinColumn(name = "film_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk5_film"))
     private Film filmId;
+
+    public Inventory(Store storeId, Film filmId) {
+        this.storeId = storeId;
+        this.filmId = filmId;
+    }
 }
