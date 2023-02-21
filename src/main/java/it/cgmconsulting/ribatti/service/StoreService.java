@@ -33,4 +33,15 @@ public class StoreService {
     public Optional<Store> findById(long storeId) {
         return storeRepository.findById(storeId);
     }
+
+    /**
+     * <p> Used by EP.5 </p>
+     * Conteggio dei clienti di uno Store
+     *
+     * @param storeName
+     * @return
+     */
+    public CustomerStoreResponse numberCustomerOfStore(String storeName) {
+        return storeRepository.findByStoreName(storeName);
+    }
 }
