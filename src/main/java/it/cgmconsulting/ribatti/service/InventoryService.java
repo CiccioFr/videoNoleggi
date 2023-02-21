@@ -4,11 +4,9 @@ import it.cgmconsulting.ribatti.entity.Film;
 import it.cgmconsulting.ribatti.entity.Inventory;
 import it.cgmconsulting.ribatti.entity.Store;
 import it.cgmconsulting.ribatti.repository.InventoryRepository;
-import it.cgmconsulting.ribatti.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class InventoryService {

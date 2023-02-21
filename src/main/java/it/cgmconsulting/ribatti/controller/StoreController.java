@@ -1,6 +1,7 @@
 package it.cgmconsulting.ribatti.controller;
 
 import it.cgmconsulting.ribatti.payload.response.CustomerStoreResponse;
+import it.cgmconsulting.ribatti.payload.response.FilmInStoreResponse;
 import it.cgmconsulting.ribatti.payload.response.FilmTestResponse;
 import it.cgmconsulting.ribatti.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;

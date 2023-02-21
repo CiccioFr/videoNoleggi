@@ -1,5 +1,6 @@
 package it.cgmconsulting.ribatti.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
 public class Rental {
 
     @EmbeddedId
@@ -21,6 +22,10 @@ public class Rental {
 
     @UpdateTimestamp
     private LocalDateTime rentalReturn;
+
+    public Rental(RentalId rentalId) {
+        this.rentalId = rentalId;
+    }
 
     @Override
     public boolean equals(Object o) {

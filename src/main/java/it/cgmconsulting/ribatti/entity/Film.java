@@ -19,6 +19,7 @@ public class Film {
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
+
     @Column(nullable = false, columnDefinition = "SMALLINT")
     private int releaseYear;
 

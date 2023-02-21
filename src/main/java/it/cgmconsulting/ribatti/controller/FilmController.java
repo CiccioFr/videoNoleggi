@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 @RestController
 @Validated
@@ -26,7 +27,7 @@ public class FilmController {
      */
     @PatchMapping("/update-film/{filmId}")
     @Transactional
-    public ResponseEntity<?> updateFilm(@PathVariable long filmId, @RequestBody FilmRequest filmRequest) {
+    public ResponseEntity<?> updateFilm(@PathVariable long filmId, @Valid @RequestBody FilmRequest filmRequest) {
 
         if (!filmService.existsById(filmId))
             return new ResponseEntity("Non è stato trovato il Film", HttpStatus.NOT_FOUND);
@@ -34,4 +35,5 @@ public class FilmController {
 
         return new ResponseEntity("Il film " + filmRequest.getTitle() + " è stato aggiornato", HttpStatus.OK);
     }
+
 }

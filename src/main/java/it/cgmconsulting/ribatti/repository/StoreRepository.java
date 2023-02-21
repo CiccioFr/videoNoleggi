@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
+
     /**
      * <p> EP.5 </p>
      * Per lo Store richiesto, restituisce il numero totale dei film in carico
