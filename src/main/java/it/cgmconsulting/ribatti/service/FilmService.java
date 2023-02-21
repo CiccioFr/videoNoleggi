@@ -14,12 +14,18 @@ public class FilmService {
     @Autowired
     FilmRepository filmRepository;
 
+    /**
+     * <p> Used by EP.4 </p>
+     *
+     * @param filmId
+     * @return
+     */
     public boolean existsById(long filmId) {
         return filmRepository.existsById(filmId);
     }
 
-    public Optional<Film> findById(long filmId) {
-        return filmRepository.findById(filmId);
+    public Optional<Film> findByTitle(String title) {
+        return filmRepository.findByTitle(title);
     }
 
     public void updateFilm(long filmId, FilmRequest filmRequest) {

@@ -24,6 +24,12 @@ public class InventoryController {
     @Autowired
     FilmService filmService;
 
+    /**
+     * <p> EP.4 </p>
+     * Aggiunge un film an uno Store specifico
+     *
+     * @return
+     */
     @Transactional
     @PutMapping("/add-film-to-store/{storeId}/{filmId}")
     public ResponseEntity<?> addFilmToStore(@PathVariable long storeId, @PathVariable long filmId) {
@@ -36,8 +42,5 @@ public class InventoryController {
 
         inventoryService.addFilmToStore(storeId, filmId);
         return new ResponseEntity("Film aggiunto all'inventario del negozio", HttpStatus.OK);
-
     }
-
-
 }

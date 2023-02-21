@@ -19,6 +19,13 @@ public class InventoryService {
     @Autowired
     FilmService filmService;
 
+    /**
+     * <p> EP.4 </p>
+     * Aggiunge un film an uno Store specifico
+     *
+     * @param storeId id dello Store a cui aggiungere il Film
+     * @param filmId  Film da aggiungere
+     */
     public void addFilmToStore(long storeId, long filmId) {
 
         Store store = storeService.findById(storeId).get();
