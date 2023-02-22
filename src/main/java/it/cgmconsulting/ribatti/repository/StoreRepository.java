@@ -48,7 +48,7 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
             "INNER JOIN Inventory i ON s.storeId = i.storeId.storeId " +
             "INNER JOIN Rental r ON r.rentalId.inventoryId.inventoryId = i.inventoryId " +
             "WHERE s.storeId = :storeId AND r.rentalId.rentalDate BETWEEN :start AND :end") //r.rentalId.rentalDate > :start AND r.rentalReturn < :end
-    FilmInTimeResponse filmInTime(@Param("storeId") long storeId, @Param("start") LocalDateTime start, @Param("end") LocalDateTime end);
+    FilmInTimeResponse filmInTime(@Param("storeId") long storeId, @Param("start") LocalDate start, @Param("end") LocalDate end);
 
     // Long countByRentalId_StoreIdAndRentalReturnBetween(long storeId, LocalDateTime startDate, LocalDateTime endDate);
 

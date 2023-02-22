@@ -67,15 +67,15 @@ public class StoreController {
 //        LocalDate startDate = LocalDate.parse(start, formatter);
 //        LocalDate endDate = LocalDate.parse(end, formatter);
 
-//        LocalDate startDate = LocalDate.parse(start);
-//        LocalDate endDate = LocalDate.parse(end);
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
         // con 2021-10-01
         // java.lang.IllegalArgumentException: Parameter value [2021-07-01] did not match expected type [java.time.LocalDateTime (n/a)]
         // con 2021-10-01 09:00:04
         // java.time.format.DateTimeParseException: Text '2021-07-01 09:00:04' could not be parsed, unparsed text found at index 10
 
-        LocalDateTime startDate = LocalDateTime.parse(start);
-        LocalDateTime endDate = LocalDateTime.parse(end);
+//        LocalDateTime startDate = LocalDateTime.parse(start);
+//        LocalDateTime endDate = LocalDateTime.parse(end);
         // con 2021-10-01
         // java.time.format.DateTimeParseException: Text '2021-07-01' could not be parsed at index 10
         // con 2021-07-01 09:00:04
