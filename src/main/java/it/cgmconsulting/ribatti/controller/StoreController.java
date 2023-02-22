@@ -67,8 +67,8 @@ public class StoreController {
 //        LocalDate startDate = LocalDate.parse(start, formatter);
 //        LocalDate endDate = LocalDate.parse(end, formatter);
 
-        LocalDate startDate = LocalDate.parse(start);
-        LocalDate endDate = LocalDate.parse(end);
+//        LocalDate startDate = LocalDate.parse(start);
+//        LocalDate endDate = LocalDate.parse(end);
         // con 2021-10-01
         // java.lang.IllegalArgumentException: Parameter value [2021-07-01] did not match expected type [java.time.LocalDateTime (n/a)]
         // con 2021-10-01 09:00:04
@@ -92,7 +92,7 @@ public class StoreController {
 //        LocalDateTime s = LocalDateTime.parse(start);
 //        System.out.println("Stampa della stringa --> "+s);
 
-        FilmInTimeResponse conteggio = storeService.filmInTime(storeId, startDate, endDate);
+        FilmInTimeResponse conteggio = storeService.filmInTime(storeId, start, end);
         return new ResponseEntity(conteggio, HttpStatus.OK);
     }
 }

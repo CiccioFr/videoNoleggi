@@ -50,6 +50,10 @@ public interface StoreRepository extends JpaRepository<Store, Long> {
             "WHERE s.storeId = :storeId AND r.rentalId.rentalDate BETWEEN :start AND :end") //r.rentalId.rentalDate > :start AND r.rentalReturn < :end
     FilmInTimeResponse filmInTime(@Param("storeId") long storeId, @Param("start") LocalDate start, @Param("end") LocalDate end);
 
+    @Query(nativeQuery = true)
+    FilmInTimeResponse filmInTimeNativa(@Param("storeId") long storeId, @Param("start") String start, @Param("end") String end);
+
+
     // Long countByRentalId_StoreIdAndRentalReturnBetween(long storeId, LocalDateTime startDate, LocalDateTime endDate);
 
 //    @Query(value="SELECT new it.cgmconsulting.ribatti.payload.response.RentalForStore(" +

@@ -57,7 +57,7 @@ public class StoreService {
      * @param end
      * @return
      */
-    public FilmInTimeResponse filmInTime(long storeId, LocalDate start, LocalDate end) {
-        return storeRepository.filmInTime(storeId, start, end);
+    public FilmInTimeResponse filmInTime(long storeId, String start, String end) {
+        return storeRepository.filmInTimeNativa(storeId, start, end);
     }
 }

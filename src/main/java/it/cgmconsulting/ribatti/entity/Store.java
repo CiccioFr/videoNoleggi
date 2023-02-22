@@ -1,5 +1,6 @@
 package it.cgmconsulting.ribatti.entity;
 
+import it.cgmconsulting.ribatti.payload.response.FilmInTimeResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,27 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedNativeQuery(
+        name = "Store.filmInTimeNativa",
+        query = "SELECT s.store_name, COUNT(i.inventory_id) AS conteggio " +
+                "    FROM Store AS s " +
+                "    INNER JOIN Inventory AS i ON s.store_id = i.store_id " +
+                "    INNER JOIN Rental AS r ON r.inventory_id = i.inventory_id " +
+                "    WHERE s.store_id = :storeId " +
+                "       AND r.rental_date BETWEEN CAST(:start AS DATE) AND CAST(:end AS DATE);",
+        //"    WHERE s.store_id = :storeId AND r.rental_date > :start AND r.rental_return < :end;",
+        resultSetMapping = "miaQuery"
+)
+@SqlResultSetMapping(
+        name = "miaQuery",
+        classes = @ConstructorResult(
+                targetClass = FilmInTimeResponse.class,
+                columns = {
+                        @ColumnResult(name = "store_name", type = String.class),
+                        @ColumnResult(name = "conteggio", type = Long.class)
+                }
+        )
+)
 public class Store {
 
     @Id
