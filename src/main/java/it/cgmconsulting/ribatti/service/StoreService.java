@@ -2,10 +2,14 @@ package it.cgmconsulting.ribatti.service;
 
 import it.cgmconsulting.ribatti.entity.Store;
 import it.cgmconsulting.ribatti.payload.response.CustomerStoreResponse;
+import it.cgmconsulting.ribatti.payload.response.FilmInTimeResponse;
 import it.cgmconsulting.ribatti.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -43,5 +47,17 @@ public class StoreService {
      */
     public CustomerStoreResponse numberCustomerOfStore(String storeName) {
         return storeRepository.findByStoreName(storeName);
+    }
+
+    /**
+     * EP.7
+     *
+     * @param storeId
+     * @param start
+     * @param end
+     * @return
+     */
+    public FilmInTimeResponse filmInTime(long storeId, LocalDateTime start, LocalDateTime end) {
+        return storeRepository.filmInTime(storeId, start, end);
     }
 }
