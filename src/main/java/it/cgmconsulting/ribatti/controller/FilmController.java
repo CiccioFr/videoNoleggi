@@ -1,6 +1,7 @@
 package it.cgmconsulting.ribatti.controller;
 
 import it.cgmconsulting.ribatti.payload.request.FilmRequest;
+import it.cgmconsulting.ribatti.payload.response.FilmMaxRentResponse;
 import it.cgmconsulting.ribatti.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @Validated
@@ -36,4 +38,14 @@ public class FilmController {
         return new ResponseEntity("Il film " + filmRequest.getTitle() + " è stato aggiornato", HttpStatus.OK);
     }
 
+    /**
+     * Ricerca i Film/Films col maggior numero di noleggi
+     * <p> EP.9 </p>
+     * @return ResponseEntity con List di Films
+     */
+    @GetMapping("/find-film-with-max-number-of-rent/")
+    public ResponseEntity findFilmMaxNrRent(){
+        List<FilmMaxRentResponse> films = filmService.findFilmMaxNrRentStream();
+        return new ResponseEntity(films, HttpStatus.OK);
+    }
 }

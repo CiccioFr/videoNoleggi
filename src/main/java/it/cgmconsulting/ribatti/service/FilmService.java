@@ -2,11 +2,13 @@ package it.cgmconsulting.ribatti.service;
 
 import it.cgmconsulting.ribatti.entity.Film;
 import it.cgmconsulting.ribatti.payload.request.FilmRequest;
+import it.cgmconsulting.ribatti.payload.response.FilmMaxRentResponse;
 import it.cgmconsulting.ribatti.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class FilmService {
@@ -30,6 +32,7 @@ public class FilmService {
 
     /**
      * usato da EP.1
+     *
      * @param filmId
      * @param filmRequest
      */
@@ -41,5 +44,17 @@ public class FilmService {
         film.get().setDescription(filmRequest.getDescription());
         film.get().setReleaseYear(filmRequest.getReleaseYear());
 
+    }
+
+    /**
+     * <p> EP.9 </p>
+     */
+    public List<FilmMaxRentResponse> findFilmMaxNrRentStream() {
+        List<FilmMaxRentResponse> films = filmRepository.findFilmMaxNrRent();
+
+        long noleggiMax = films.stream().max(
+                Comparator.comparing(f -> f.getTotNoleggi())).get().getTotNoleggi();
+
+        return films.stream().filter(f -> f.getTotNoleggi() == noleggiMax).collect(Collectors.toList());
     }
 }
