@@ -35,6 +35,15 @@ public class FilmService {
     }
 
     /**
+     * <p> EP.2 </p>
+     *
+     * @param filmId
+     */
+    public List<FilmStoreResponse> findFilmInStore(long filmId) {
+        return filmRepository.findFilmInStore(filmId);
+    }
+
+    /**
      * <p> Used by EP.4 </p>
      *
      * @param filmId

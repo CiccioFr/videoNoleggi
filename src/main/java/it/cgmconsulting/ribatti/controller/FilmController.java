@@ -46,6 +46,23 @@ public class FilmController {
     }
 
     /**
+     * <p> EP.2 </p>
+     * Ricerca il film nei vari Store
+     *
+     * @param filmId
+     * @return
+     */
+    @GetMapping("/find-film-in-store/{filmId}")
+    public ResponseEntity findFilmInStore(@PathVariable long filmId) {
+
+        if (!filmService.existsById(filmId))
+            return new ResponseEntity("Non è stato trovato il Film", HttpStatus.NOT_FOUND);
+
+        List<FilmStoreResponse> film = filmService.findFilmInStore(filmId);
+        return new ResponseEntity(film, HttpStatus.OK);
+    }
+
+    /**
      * Ricerca i Film/Films col maggior numero di noleggi
      * <p> EP.9 </p>
      *
