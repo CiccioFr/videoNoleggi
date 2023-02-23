@@ -85,4 +85,29 @@ public class FilmController {
         List<FilmMaxRentResponse> films = filmService.findFilmMaxNrRentStream();
         return new ResponseEntity(films, HttpStatus.OK);
     }
+
+    /**
+     * <p> EP.10 </p>
+     * film a cui hanno lavorato tutti gli attori
+     *
+     * @return
+     */
+    @GetMapping("/find-films-by-actors")
+    public ResponseEntity findFilmsByActors(@RequestParam List<Long> actorId) {
+
+        List<Long> actorNotExist = new ArrayList<>();
+        for (Long a : actorId) {
+            if (!staffService.existsById(a)) {
+                actorNotExist.add(a);
+            }
+        }
+        if (actorNotExist.size() == 1)
+            return new ResponseEntity("L'attore con id " + actorNotExist + " non è censito", HttpStatus.NOT_FOUND);
+
+        if (actorNotExist.size() > 1)
+            return new ResponseEntity("Gli attori con id " + actorNotExist + " non sono censiti", HttpStatus.NOT_FOUND);
+
+        List<FilmResponse> films = filmService.findFilmsByActors(actorId);
+        return new ResponseEntity(films, HttpStatus.OK);
+    }
 }
