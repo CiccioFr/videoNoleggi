@@ -11,6 +11,9 @@ import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * <p> EP.6 </p>
+ */
 @Entity
 @Getter
 @Setter

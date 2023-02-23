@@ -15,7 +15,6 @@ import javax.transaction.Transactional;
 
 @RestController
 @Validated
-@Transactional
 public class InventoryController {
     @Autowired
     InventoryService inventoryService;

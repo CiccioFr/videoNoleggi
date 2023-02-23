@@ -5,7 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Objects;
 
+/**
+ * <p> EP.4-6 </p>
+ */
 @Entity
 @Getter
 @Setter
@@ -29,5 +33,18 @@ public class Inventory {
     public Inventory(Store storeId, Film filmId) {
         this.storeId = storeId;
         this.filmId = filmId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Inventory inventory = (Inventory) o;
+        return inventoryId == inventory.inventoryId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(inventoryId);
     }
 }

@@ -7,6 +7,8 @@ import it.cgmconsulting.ribatti.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class InventoryService {
@@ -31,5 +33,9 @@ public class InventoryService {
 
         Inventory inventory = new Inventory(store, film);
         inventoryRepository.save(inventory);
+    }
+
+    public Optional<Inventory> findById(Long inventoryId) {
+        return inventoryRepository.findById(inventoryId);
     }
 }

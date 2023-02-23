@@ -7,6 +7,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * <p> EP.6-8 </p>
+ */
 @Entity
 @Getter
 @Setter

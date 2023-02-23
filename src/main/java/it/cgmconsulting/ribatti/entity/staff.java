@@ -8,6 +8,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * <p> EP.1 </p>
+ */
 @Entity
 @Getter
 @Setter

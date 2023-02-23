@@ -7,6 +7,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * <p> EP.1-4 </p>
+ */
 @Entity @Getter @Setter @NoArgsConstructor
 public class Film {
 
@@ -21,7 +24,7 @@ public class Film {
     private String description;
 
     @Column(nullable = false, columnDefinition = "SMALLINT")
-    private int releaseYear;
+    private short releaseYear;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id",

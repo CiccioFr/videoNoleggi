@@ -10,6 +10,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * <p> EP.6 </p>
+ */
 @Embeddable
 @Getter
 @Setter
@@ -26,7 +29,6 @@ public class RentalId extends CreationRentalDate implements Serializable {
     @JoinColumn(name = "inventory_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk11_inventory"))
     private Inventory inventoryId;
-//    private long inventoryId;
 
     @Override
     public boolean equals(Object o) {

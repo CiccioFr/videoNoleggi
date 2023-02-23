@@ -7,6 +7,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * <p> EP.1 </p>
+ */
 @Getter @AllArgsConstructor
 public class FilmRequest {
 
@@ -17,5 +20,5 @@ public class FilmRequest {
     private String description;
 
     @Max(2200)
-    private int releaseYear;
+    private short releaseYear;
 }

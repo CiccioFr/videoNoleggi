@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * EP.4
+ */
 @Entity
 @Getter
 @Setter

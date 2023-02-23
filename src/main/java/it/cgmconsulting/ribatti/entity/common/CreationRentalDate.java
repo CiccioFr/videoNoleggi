@@ -9,6 +9,9 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * <p> EP.6 </p>
+ */
 @MappedSuperclass
 @Getter
 @Setter
