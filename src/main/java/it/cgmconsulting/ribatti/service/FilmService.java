@@ -44,6 +44,16 @@ public class FilmService {
     }
 
     /**
+     * <p> EP.3 </p>
+     *
+     * @param language
+     * @return
+     */
+    public List<FilmResponse> findFilmsByLanguage(Long language) {
+        return filmRepository.findFilmsByLanguage(language);
+    }
+
+    /**
      * <p> Used by EP.4 </p>
      *
      * @param filmId

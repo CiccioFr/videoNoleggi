@@ -27,6 +27,19 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
     List<FilmStoreResponse> findFilmInStore(@Param("filmId") Long filmId);
 
     /**
+     * <p> EP.3 </p>
+     *
+     * @param languageId
+     * @return
+     */
+    @Query(value = "SELECT new it.cgmconsulting.ribatti.payload.response.FilmResponse(" +
+            "f.filmId, f.title, f.description, f.releaseYear, f.languageId.languageName) " +
+            "FROM Film f " +
+            "INNER JOIN Language l ON l.languageId = f.languageId.languageId " +
+            "WHERE l.languageId = :languageId")
+    List<FilmResponse> findFilmsByLanguage(Long languageId);
+
+    /**
      * EP.9
      */
     @Query(value = "SELECT new it.cgmconsulting.ribatti.payload.response.FilmMaxRentResponse(" +
@@ -36,5 +49,4 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
             "INNER JOIN Rental r ON i.inventoryId = r.rentalId.inventoryId.inventoryId " +
             "GROUP BY f.title ")
     List<FilmMaxRentResponse> findFilmMaxNrRent();
-
 }

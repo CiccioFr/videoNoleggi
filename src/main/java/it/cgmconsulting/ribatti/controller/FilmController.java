@@ -63,8 +63,20 @@ public class FilmController {
     }
 
     /**
-     * Ricerca i Film/Films col maggior numero di noleggi
+     * <p> EP.3 </p>
+     * Ricerca i film per lingua
+     *
+     * @return
+     */
+    @GetMapping("/find-films-by-language/{languageId}")
+    public ResponseEntity findFilmsByLanguage(@PathVariable Long languageId) {
+        List<FilmResponse> film = filmService.findFilmsByLanguage(languageId);
+        return new ResponseEntity<>(film, HttpStatus.OK);
+    }
+
+    /**
      * <p> EP.9 </p>
+     * Ricerca i Film/Films col maggior numero di noleggi
      *
      * @return ResponseEntity con List di Films
      */
